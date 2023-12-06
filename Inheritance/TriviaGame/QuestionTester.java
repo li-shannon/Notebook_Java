@@ -17,5 +17,14 @@ public class QuestionTester {
 		q2.addChoice("Seahorse", true);
 		q2.addChoice("Kangroo", false);
 		q2.present();
+		
+		MultiChoiceQuestion q3 = new  MultiChoiceQuestion();
+		q3.setText("Which of the following animals are no longer found on Earth? (Select All That Apply)");
+		q3.addChoice("Dinosaur", true);
+		q3.addChoice("Giant Panda", false);
+		q3.addChoice("Trilobite", true);
+		q3.addChoice("Mammoth", true);
+		q3.addChoice("Northern White Rhino", false);
+		q3.present();
 	}
 }
