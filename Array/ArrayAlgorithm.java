@@ -2,13 +2,17 @@
 public class ArrayAlgorithm {
 	public static void main(String[] args) {
 		int[] numbers = new int[10];
-		fillWithRandomNumbers(numbers, 10, 99);
+		
+		fill(numbers, 10, 99);
 		printArray(numbers);
 		
-		System.out.println("Maximum value in the array [numbers]: " + findMax(numbers));
-		System.out.println("minimum value in the array [numbers]: " + findMin(numbers));
-		System.out.println("Sum of all numbers in the array [numbers]: " + calculateSum(numbers));
-		System.out.println("Average of all numbers in the array [numbers]: " + calculateAverage(numbers));
+		reverse(numbers);
+		printArray(numbers);
+		
+		System.out.printf("%-10s%5d\n", "Maximum: ", findMax(numbers));
+		System.out.printf("%-10s%5d\n", "Minimum: ", findMin(numbers));
+		System.out.printf("%-10s%5d\n", "Sum: ", calculateSum(numbers));
+		System.out.printf("%-10s%5.2f\n", "Average: ", calculateAverage(numbers));
 		
 	}
 	
@@ -16,9 +20,9 @@ public class ArrayAlgorithm {
 	 * Fills an array with random integers between two given numbers.
 	 * @param array the array to be filled
 	 * @param a the lower limit of the integer range (inclusive)
-	 * @param b the upper limit of the integer range (exclusive)
+	 * @param b the upper limit of the integer range (inclusive)
 	 */
-	public static void fillWithRandomNumbers(int[] array, int a, int b) {
+	public static void fill(int[] array, int a, int b) {
 		for(int i = 0; i < array.length; i++) {
 			array[i] = (int) (Math.random() * (b - a + 1)) + a;
 		}
@@ -87,6 +91,19 @@ public class ArrayAlgorithm {
 			}
 		}
 		return min;
+	}
+	
+	/**
+	 * Reverses the order of elements in an array.
+	 * @param array the array to be reversed
+	 */
+	public static void reverse(int[] array) {
+		int temp = 0;
+		for(int i = 0; i < array.length / 2; i++) {
+			temp = array[i];
+			array[i] = array[array.length - 1 - i];
+			array[array.length - 1 - i] = temp;
+		}
 	}
 }
 
